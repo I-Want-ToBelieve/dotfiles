@@ -7,22 +7,16 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./nvidia.nix
+    ./amdgpu.nix
 
     # Shared configuration across all machines
     ../shared
-    ../shared/users/rxyhn.nix
+    ../shared/users/I-Want-ToBelieve.nix
   ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [
-      "i915.force_probe=46a6"
-      "i915.enable_psr=0"
-      "i915.enable_guc=2"
-      "i8042.direct"
-      "i8042.dumbkbd"
-    ];
+    kernelParams = [];
 
     supportedFilesystems = ["btrfs"];
 
@@ -41,7 +35,7 @@
         efiSupport = true;
         useOSProber = true;
         enableCryptodisk = true;
-        configurationLimit = 3;
+        configurationLimit = 5;
       };
     };
   };
@@ -105,7 +99,7 @@
       settings = rec {
         initial_session = {
           command = "Hyprland";
-          user = "rxyhn";
+          user = "I-Want-ToBelieve";
         };
         default_session = initial_session;
       };
@@ -128,9 +122,6 @@
     ];
   };
 
-  # enable hyprland
-  programs.hyprland.nvidiaPatches = true;
-
   security = {
     pam.services.swaylock = {
       text = ''
@@ -143,8 +134,6 @@
     systemPackages = with pkgs; [
       acpi
       brightnessctl
-      cudaPackages_11.cudatoolkit
-      cudaPackages_11.cudnn
       docker-client
       docker-compose
       docker-credential-helpers
@@ -158,14 +147,8 @@
 
     variables = {
       NIXOS_OZONE_WL = "1";
-      GBM_BACKEND = "nvidia-drm";
-      LIBVA_DRIVER_NAME = "nvidia";
-      __GL_GSYNC_ALLOWED = "0";
-      __GL_VRR_ALLOWED = "0";
       WLR_BACKEND = "vulkan";
-      WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
-      WLR_DRM_NO_ATOMIC = "1";
-      WLR_NO_HARDWARE_CURSORS = "1";
+      GDK_BACKEND= "wayland";
     };
   };
 
@@ -174,12 +157,10 @@
 
     docker = {
       enable = true;
-      enableNvidia = true;
     };
 
     podman = {
       enable = true;
-      enableNvidia = true;
       extraPackages = with pkgs; [
         skopeo
         conmon

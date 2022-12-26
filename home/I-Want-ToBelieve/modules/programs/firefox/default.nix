@@ -18,7 +18,7 @@
     package = pkgs.firefox-wayland;
 
     profiles = {
-      rxyhn = {
+      I-Want-ToBelieve = {
         id = 0;
         settings = {
           "general.smoothScroll" = true;

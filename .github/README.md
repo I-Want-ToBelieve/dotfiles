@@ -1,9 +1,9 @@
-<!-- Rxyhn's dotfiles -->
-<!-- https://github.com/rxyhn/dotfiles -->
+<!-- I-Want-ToBelieve's dotfiles -->
+<!-- https://github.com/I-Want-ToBelieve/dotfiles -->
 
 [![NixOS](https://img.shields.io/badge/NixOS-unstable-informational.svg?style=flat&logo=nixos)](https://github.com/nixos/nixpkgs)
 
-[![NixOS_Check](https://github.com/rxyhn/dotfiles/actions/workflows/check.yml/badge.svg)](https://github.com/rxyhn/dotfiles/actions/workflows/check.yml) [![NixOS_Fmt](https://github.com/rxyhn/dotfiles/actions/workflows/fmt.yml/badge.svg)](https://github.com/rxyhn/dotfiles/actions/workflows/fmt.yml)
+[![NixOS_Check](https://github.com/I-Want-ToBelieve/dotfiles/actions/workflows/check.yml/badge.svg)](https://github.com/I-Want-ToBelieve/dotfiles/actions/workflows/check.yml) [![NixOS_Fmt](https://github.com/I-Want-ToBelieve/dotfiles/actions/workflows/fmt.yml/badge.svg)](https://github.com/I-Want-ToBelieve/dotfiles/actions/workflows/fmt.yml)
 
 <br>
 
@@ -11,7 +11,7 @@
 <div align="center">
 
 ```ocaml
-Rxyhn's Dotfiles
+I-Want-ToBelieve's Dotfiles
 ```
 
 <br>
@@ -47,7 +47,7 @@ NixOS / Home-Manager / Flake
    ```sh
    # Yoink nixos-unstable
    wget -O nixos.iso https://channels.nixos.org/nixos-unstable/latest-nixos-minimal-x86_64-linux.iso
-   
+
    # Write it to a flash drive
    cp nixos.iso /dev/sdX
    ```
@@ -55,7 +55,7 @@ NixOS / Home-Manager / Flake
 2. Boot into the installer.
 
 3. Switch to root user: `sudo su -`
-  
+
 4. Partitioning
 
     We create a 512MB EFI boot partition (`/dev/nvme0n1p1`) and the rest will be our LUKS encrypted physical volume for LVM (`/dev/nvme0n1p2`).
@@ -66,7 +66,7 @@ NixOS / Home-Manager / Flake
     - `n` (add partition, 512M, type ef00 EFI)
     - `n` (add partition, remaining space, type 8e00 Linux LVM)
     - `w` (write partition table and exit)
-    
+
     Setup the encrypted LUKS partition and open it:
     ```bash
     $ cryptsetup luksFormat /dev/nvme0n1p2
@@ -117,10 +117,10 @@ NixOS / Home-Manager / Flake
     ```bash
     $ nix-shell -p nixFlakes
     ```
-    
+
 6. Install nixos from flake
     ```bash
-    $ nixos-install --flake github:rxyhn/dotfiles#lenovo --impure
+    $ nixos-install --flake github:I-Want-ToBelieve/dotfiles#asus --impure
     ```
 
 <br>
@@ -152,7 +152,7 @@ NixOS / Home-Manager / Flake
 
  **These are the people who build and maintain this repository.**
 
- **[rxyhn](https://github.com/rxyhn) - [sioodmy](https://github.com/sioodmy) - [fufexan](https://github.com/fufexan)</b>**
+ **[I-Want-ToBelieve](https://github.com/I-Want-ToBelieve) - [sioodmy](https://github.com/sioodmy) - [fufexan](https://github.com/fufexan)</b>**
 
 <br>
 <br>
@@ -160,6 +160,6 @@ NixOS / Home-Manager / Flake
 
 <p align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" /></p>
 
-<p align="center"><a href="https://github.com/rxyhn/dotfiles/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=flat&label=License&message=MIT&logoColor=cdd6f4&colorA=1e1e2e&colorB=cba6f7"/></a></p>
+<p align="center"><a href="https://github.com/I-Want-ToBelieve/dotfiles/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=flat&label=License&message=MIT&logoColor=cdd6f4&colorA=1e1e2e&colorB=cba6f7"/></a></p>
 
 </div>

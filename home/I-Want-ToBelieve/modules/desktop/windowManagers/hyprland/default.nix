@@ -66,7 +66,7 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.default.override {nvidiaPatches = true;};
+    package = inputs.hyprland.packages.${pkgs.system}.default.override {};
     systemdIntegration = true;
     extraConfig = import ./config.nix;
   };
@@ -79,7 +79,7 @@ in {
   systemd.user.services.swaybg = let
     wallpaper = builtins.fetchurl rec {
       name = "wallpaper-${sha256}.png";
-      url = "https://raw.githubusercontent.com/rxyhn/wallpapers/main/catppuccin/cat_leaves.png";
+      url = "https://raw.githubusercontent.com/I-Want-ToBelieve/wallpapers/main/catppuccin/cat_leaves.png";
       sha256 = "1894y61nx3p970qzxmqjvslaalbl2skj5sgzvk38xd4qmlmi9s4i";
     };
   in {
