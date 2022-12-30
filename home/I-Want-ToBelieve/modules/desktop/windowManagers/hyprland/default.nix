@@ -48,11 +48,7 @@ in {
       XDG_SESSION_DESKTOP = "Hyprland";
 
       # QT Variables
-      DISABLE_QT5_COMPAT = "0";
-      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-      QT_QPA_PLATFORM = "wayland";
-      QT_STYLE_OVERRIDE = "kvantum";
-      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      
 
       # Toolkit Backend Variables
       SDL_VIDEODRIVER = "wayland";
