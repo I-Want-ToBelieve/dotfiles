@@ -8,11 +8,14 @@
     enable = true;
     openFirewall = true;
     forwardX11 = false;
-    useDns = false;
     ports = [22];
-    kbdInteractiveAuthentication = false;
-    passwordAuthentication = lib.mkForce false;
-    permitRootLogin = lib.mkForce "no";
+
+    settings = {
+      permitRootLogin = lib.mkForce "no";
+      useDns = false;
+      passwordAuthentication = lib.mkForce false;
+      kbdInteractiveAuthentication = false;
+    };
 
     hostKeys = [
       {

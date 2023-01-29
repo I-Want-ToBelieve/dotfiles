@@ -68,7 +68,9 @@
 
       # use binary cache, its not gentoo
       substituters = [
-        "https://cache.nixos.org?priority=10"
+        "https://mirrors.ustc.edu.cn/nix-channels/store"
+        "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+        "https://cache.nixos.org"
         "https://nix-community.cachix.org"
         "https://fortuneteller2k.cachix.org"
         "https://nixpkgs-wayland.cachix.org"

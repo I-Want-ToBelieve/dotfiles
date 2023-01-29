@@ -22,16 +22,19 @@
     fzf = {
       enable = true;
       enableZshIntegration = true;
+      enableFishIntegration = true;
     };
 
     zoxide = {
       enable = true;
       enableZshIntegration = true;
+      enableFishIntegration = true;
     };
 
     dircolors = {
       enable = true;
       enableZshIntegration = true;
+      enableFishIntegration = true;
     };
 
     bat = {

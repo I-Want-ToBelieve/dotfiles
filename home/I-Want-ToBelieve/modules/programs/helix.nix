@@ -173,7 +173,7 @@
     selene
     shellcheck
     shfmt
-    solc
+    # solc
     sumneko-lua-language-server
     stylua
     texlab

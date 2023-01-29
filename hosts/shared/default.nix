@@ -27,6 +27,12 @@
     binsh = "${pkgs.bash}/bin/bash";
     shells = with pkgs; [zsh];
 
+    sessionVariables = {
+      GTK_IM_MODULE = "fcitx";
+      QT_IM_MODULE = "fcitx";
+      XMODIFIERS = "@im=fcitx";
+    };
+
     systemPackages = with pkgs; [
       curl
       gcc
@@ -87,6 +93,7 @@
     udisks2.enable = true;
     printing.enable = true;
     fstrim.enable = true;
+    v2raya.enable = true;
 
     udev.packages = with pkgs; [gnome.gnome-settings-daemon];
 

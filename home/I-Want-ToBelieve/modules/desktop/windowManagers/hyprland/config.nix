@@ -4,13 +4,14 @@
 
   # Autostart programs
   exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
+  exec-once = fcitx5 -d -r
 
   # Input
   input {
     kb_layout = us
     kb_variant =
     kb_model =
-    kb_options =
+    kb_options = caps:escape
     kb_rules =
     follow_mouse = 1
     touchpad {
@@ -29,8 +30,7 @@
     col.active_border=0xffcba6f7
     col.inactive_border=0xff313244
     no_border_on_floating = true
-    layout = dwindle
-    main_mod = SUPER
+    layout = master
   }
 
   # Misc
@@ -168,9 +168,9 @@
   bind = SUPER SHIFT, E, exec, $editor
   bind = SUPER SHIFT, F, exec, $files
   bind = SUPER SHIFT, B, exec, $browser
-  bind = SUPER, D, exec, $launcher
+  bind = ALT, SPACE, exec, $launcher
   bind = SUPER, E, exec, $emoji
-  bind = SUPER, X, exec, power-menu
+  # bind = SUPER, M, exec, power-menu
 
   # Function keys
   bind = ,XF86MonBrightnessUp, exec, brightness set +5%
@@ -199,6 +199,8 @@
   bind = SUPER, Space, togglefloating,
   bind = SUPER, P, pseudo, # dwindle
   bind = SUPER, J, togglesplit, # dwindle
+  bind = SUPER, M, fullscreen
+  bind = SUPER, F, togglefloating
 
   # Focus
   bind = SUPER, left, movefocus, l
@@ -211,12 +213,22 @@
   bind = SUPER SHIFT, right, movewindow, r
   bind = SUPER SHIFT, up, movewindow, u
   bind = SUPER SHIFT, down, movewindow, d
+  bind = SUPER_SHIFT, m, layoutmsg, swapwithmaster
+  binde = SUPER, i, layoutmsg,cycleprev
+  binde = SUPER_SHIFT, i, layoutmsg, swapprev
+  binde = SUPER, k, layoutmsg, cyclenext
+  binde = SUPER_SHIFT, k, layoutmsg, swapnext
 
   # Resize
-  bind = SUPER CTRL, left, resizeactive, -20 0
-  bind = SUPER CTRL, right, resizeactive, 20 0
-  bind = SUPER CTRL, up, resizeactive, 0 -20
-  bind = SUPER CTRL, down, resizeactive, 0 20
+  binde=SUPER,j,resizeactive,-20 0
+  binde=SUPER,l,resizeactive,20 0
+
+
+  bind=SUPER,left,movefocus,l
+  bind=SUPER,right,movefocus,r
+  bind=SUPER,up,movefocus,u
+  bind=SUPER,down,movefocus,d
+
 
   # Tabbed
   bind= SUPER, g, togglegroup
@@ -251,6 +263,9 @@
   bind = SUPER SHIFT, 8, movetoworkspace, 8
   bind = SUPER SHIFT, 9, movetoworkspace, 9
   bind = SUPER SHIFT, 0, movetoworkspace, 10
+
+  bind = SUPER, x, movetoworkspacesilent, special:minimum
+  bind = SUPER, o, togglespecialworkspace, minimum
 
   # Mouse bindings
   bindm = SUPER, mouse:272, movewindow

@@ -13,7 +13,8 @@
     };
   });
 in {
-  home.packages = with pkgs; [
+  home.packages = with pkgs;
+  with inur; [
     alsa-lib
     alsa-plugins
     alsa-tools
@@ -41,10 +42,11 @@ in {
     inotify-tools
     keepassxc
     killall
+    krabby
     libappindicator
     libnotify
     libsecret
-    libreoffice-fresh
+    # libreoffice-fresh
     mpv-unwrapped
     nodejs
     pamixer

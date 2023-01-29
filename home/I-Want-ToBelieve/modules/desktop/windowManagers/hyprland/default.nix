@@ -48,7 +48,6 @@ in {
       XDG_SESSION_DESKTOP = "Hyprland";
 
       # QT Variables
-      
 
       # Toolkit Backend Variables
       SDL_VIDEODRIVER = "wayland";

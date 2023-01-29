@@ -38,6 +38,7 @@ in {
     ./starship.nix
     ./transient-services.nix
     ./zsh.nix
+    ./fish.nix
   ];
 
   home = {
@@ -67,6 +68,7 @@ in {
       enable = true;
       pinentryFlavor = "gnome3";
       enableZshIntegration = true;
+      enableFishIntegration = true;
       enableSshSupport = true;
     };
   };

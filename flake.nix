@@ -9,7 +9,7 @@
     nur.url = "github:nix-community/NUR";
     devshell.url = "github:numtide/devshell";
     flake-utils.url = "github:numtide/flake-utils";
-    helix.url = "github:SoraTenshi/helix/experimental";
+    helix.url = "github:helix-editor/helix";
     hyprland.url = "github:hyprwm/Hyprland/";
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     hyprland-contrib.url = "github:hyprwm/contrib";
@@ -40,6 +40,12 @@
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
       flake = false;
     };
+
+    # my nur repository for my nixos dotfiles
+    inur = {
+      url = "github:I-Want-ToBelieve/nur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -65,6 +71,9 @@
       };
       overlays = with inputs;
         [
+          (final: prev: {
+            inur = inputs.inur.packages."${prev.system}";
+          })
           (
             final: _: let
               inherit (final) system;
